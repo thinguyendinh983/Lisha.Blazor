@@ -1,0 +1,32 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using Microsoft.Extensions.Localization;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using System.Security.Claims;
+@using Lisha.Blazor
+@using Lisha.Blazor.Pages.Authentication
+@using Lisha.Blazor.Shared
+@using Lisha.Blazor.Components.Common
+@using Lisha.Blazor.Components.Notifications
+@using Lisha.Blazor.Components.ThemeManager
+@using Lisha.Blazor.Infrastructure.Auth
+@using Lisha.Blazor.Infrastructure.Notifications
+@using Lisha.Blazor.Infrastructure.Preferences
+@using Lisha.Shared.Authorization
+@using MediatR.Courier
+@using MudBlazor
+
+@attribute [Authorize]
+
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+@inject IConfiguration Config
+@inject IClientPreferenceManager ClientPreferences

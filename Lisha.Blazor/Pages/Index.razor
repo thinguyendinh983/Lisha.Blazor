@@ -1,0 +1,36 @@
+﻿@page "/home"
+@page "/"
+
+@inject IStringLocalizer<Index> L
+
+<MudContainer>
+    <MudGrid>
+        <MudItem xs="12" sm="12" md="12">
+            <div class="d-flex justify-center mt-4">
+                <img src="bidv-logo.png" Style="height:250px" />
+            </div>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="12">
+            <MudText Align="Align.Center" Typo="Typo.h4" Class="smaller">@L["Lisha"]</MudText>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="12">
+            <MudText Align="Align.Center">@L["Version 1.0"]</MudText>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="12">
+            <MudText Align="Align.Center">@L["(C) 2022 Joint Stock Commercial Bank for Investment and Development of Vietnam - Bac Kan Branch"]</MudText>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = default!;
+
+    public IEnumerable<Claim>? Claims { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthState;
+        Claims = authState.User.Claims;
+    }
+}
